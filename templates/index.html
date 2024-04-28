@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignGuru Home</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/templatemo-style.css">
+    <link rel="stylesheet" href="/static/css/style1.css">
+    <script src="https://kit.fontawesome.com/0cc7e96959.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                SignGuru
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-1 active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-3" href="/about">About</a>
+                </li>
+                {%if 'user_id' in session %}
+                <li class="nav-item">
+                    <a class="nav-link nav-link-2" href="/video_page">Videos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-4" href="/profile">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-4" href="/logout">Logout</a>
+                </li>
+                
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link nav-link-2" href="/video_page">Videos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-4" href="/profile">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn" id="loginBtn">Log In</button>
+                </li>
+                {% endif %}
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="/static/img/hero.jpg">
+        <div>
+            <h2 class="text-white">
+                Welcome to SignGuru!
+            </h2>
+        </div>
+    </div>
+    <div class="container-fluid mt-60">
+
+        <div class="row mb-4">
+            <h2 class="col-12 text-primary home-title">
+                Introduction
+            </h2>
+        </div>
+        <div class="row mb-74 row-1640">
+            <div>
+                <p class="special-text">
+                    At <b>SignGuru</b>, Discover a world where communication has no barriers, your gateway to <b>Malaysian Sign Language</b> interpretation and learning. Our innovative web application translates MSL into text and speech in real-time, enhancing daily interactions for the deaf and hard-of-hearing community in Malaysia. 
+                    Our web application uses advanced machine learning to translate sign language into text and speech in real time, making everyday interactions more accessible for the deaf and hard-of-hearing community. 
+                    Powered by cutting-edge technologies such as <b>MediaPipe, OpenCV, and TensorFlow</b>, <b>SignGuru</b> offers a seamless and responsive sign language detection service directly from your web browser. Whether you're learning sign language or need an immediate way to communicate, 
+                    <b>SignGuru</b> is here to assist you. Start using <b>SignGuru</b> today and experience the power of communication without limits.
+                </p>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <h2 class="col-12 text-primary home-title">
+                Objective
+            </h2>
+        </div>
+        <div class="row mb-74 row-1640">
+            <div>
+                <ul class="special-text">
+                    <li><b style="color: black;">Enhance Communication Accessibility:</b>Provide an intuitive and reliable platform for translating Malaysian Sign Language into text and spoken language, making communication more accessible for the deaf and hard-of-hearing community in Malaysia.</li>
+                    <li>
+                        <b style="color: black;"> Continuous Learning and Improvement:</b> Provide resources for users to learn more about Malaysian Sign Language and offer features that help users improve their sign language skills over time.
+                    </li>
+                    <li><b style="color: black;"> Inclusion and Awareness:</b> Raise awareness about the importance of inclusivity in communication and promote the integration of Malaysian Sign Language into everyday interactions both in personal and professional settings.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mb-50">
+            <div class="col-md-6 col-12">
+                <div class="about-2-col">
+                    <h2 class="text-primary mb-4">
+                        Features
+                    </h2>
+                </div>                
+            </div> 
+    
+        </div> <!-- row -->
+        <div class="row mb-50">
+            <div class="col-md-4 col-12">
+                <div class="about-3-col">
+                    <div class="about-icon-container mb-5">
+                        <i class="fa-solid fa-language fa-3x text-primary"></i>
+                    </div>                
+                    <h2 class="text-about mb-4">Real-Time Sign Language Translation</h2>
+                    <p class="mb-4">SignGuru uses advanced real-time processing to translate Malaysian Sign Language into text and speech instantly.</p>
+                </div>                
+            </div>
+
+            <div class="col-md-4 col-12">
+                <div class="about-3-col">
+                    <div class="about-icon-container mb-5">
+                        <i class="fa-solid fa-mobile-screen fa-3x text-primary"></i>
+                    </div>                
+                    <h2 class="text-about mb-4">Multi-Platform Accessibility </h2>
+                    <p class="mb-50">Designed with a responsive web interface, SignGuru is accessible on a variety of devices, including smartphones, tablets, and computers, without the need for additional software installation.</p>                
+                    <div class="text-center">
+                        <a href="/about" class="btn btn-primary">About</a>
+                    </div>
+                </div>                
+            </div>
+            <div class="col-md-4 col-12">
+                <div class="about-3-col">
+                    <div class="about-icon-container mb-5">
+                        <i class="fa-solid fa-graduation-cap fa-3x text-primary"></i>
+                    </div>                
+                    <h2 class="text-about mb-4">User-Friendly Interface with Educational Tools</h2>
+                    <p class="mb-4">The SignGuru application not only provides translation services but also includes educational tools and resources to help users learn and practice Malaysian Sign Language </p>
+                </div>                
+            </div>
+        </div>
+
+        <div class="row mb-50">
+            <div class="col-md-6 col-12">
+                <div class="about-2-col">
+                    <h2 class="text-primary mb-4 home-title">
+                        Interactive Demo
+                    </h2>
+                    <h2>
+                        Experience SignGuru in Real Time
+                    </h2>
+                    <video autoplay muted loop controls id="video">
+                        <source src="/static/video/hero.mp4" type="video/mp4">
+                    </video>
+                    <p class="special-text">
+                        Watch our interactive demo to see how <b>SignGuru</b> seamlessly translates <b>Malaysian Sign Language</b> into text and speech. 
+                        This demonstration showcases the real-time capabilities of our application, running directly in a <b>Python OpenCV window</b>. Every movement and gesture is captured and interpreted on the fly, demonstrating the precision and responsiveness of our technology.
+                    </p>
+                </div>                
+            </div> 
+            <div class="col-md-6 col-12">
+                <div class="tm-about-2-col">
+                    <h2 class="tm-text-primary mb-4">
+                        <h2>
+                        <br>How It Works
+                        </h2>
+                    </h2>
+                    <ul class="special-text">
+                        <li><b style="color: black;">Gesture Detection:</b> Using <b>MediaPipe</b> alongside <b>OpenCV</b>, SignGuru captures each sign through a standard webcam setup.</li>
+                        <li><b style="color: black;">Real-Time Processing:</b> Our advanced algorithms, powered by <b>TensorFlow</b> and <b>LSTM networks</b>, analyze the gestures to detect and interpret the specific signs of Malaysian Sign Language.</li>
+                        <li><b style="color: black;">Text and Speech Output:</b> The interpreted signs are instantly converted into <b>text</b> and <b>speech</b>, allowing for immediate verbal communication and learning.</li>
+                    </ul>
+                    <h2 class="tm-text-primary mb-4">
+                            Why This Matters
+                    </h2>
+                    <p class="special-text">SignGuru not only facilitates everyday communication for the deaf and hard-of-hearing community in Malaysia but also supports learning and education by providing a tool that can be used in educational settings, workplaces, and social environments.</p>
+                    <p class="special-text"><a href="#"><b class="text-getstart">Get Started Now:</b></b></a> Interested in trying SignGuru? Our demo is just the beginning. Dive into a more inclusive world where language is no barrier. Click Get Start Now to try SignGuru for yourself or contact us for more information on how we can assist your communication needs.</p>
+                </div>                
+            </div>     
+            <div class="text-center">
+                <a href="/demo" class="btn btn-primary">Try Demo</a>
+            </div>
+        </div> 
+    </div>
+
+       <!-- Footer -->
+       <footer class="bg-gray pt-5 pb-3 text-gray footer">
+        <div class="container-fluid container-small">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 px-5 mb-5">
+                    <h3 class="text-primary mb-4 footer-title">About SignGuru</h3>
+                    <p>SignGuru was developed as part of a final year project by an ambitious student in Electronic Engineering (Computer).</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 px-5 mb-5 text-right">
+                    <p>My social media here, contact me if any question and feedback.</p>
+                    <ul class="social-links d-flex justify-content-end pl-0 mb-5">
+                        <!-- <li class="mb-2"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li> -->
+                        <li class="mb-2"><a href="https://github.com/SamXQ00/CVproject.git"><i class="fab fa-github"></i></a></li>
+                        <!-- <li class="mb-2"><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li> -->
+                        <li class="mb-2"><a href="https://wa.me/60176846849"><i class="fab fa-whatsapp"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
+                    Copyright 2024 SAM XIAN QI. All rights reserved.
+                </div>
+                <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
+                    Designed by SAM XIAN QI 10DTK21F2024
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <!-- 登录和注册的模态弹窗 -->
+<div id="loginModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <div class="container">
+        <!-- 登录表单 -->
+        <div class="login form">
+          <header>Login</header>
+          <form action="/login" method="post">
+            <input type="text" name="username" placeholder="Enter your email" required>
+            <input type="password" name="password" placeholder="Enter your password" required>
+            <a href="#">Forgot password?</a>
+            <input type="submit" class="button" value="Login">
+            <div class="signup">
+              Don't have an account?
+              <label for="check">Signup</label>
+            </div>
+          </form>
+        </div>
+        <!-- 注册表单 -->
+        <div class="registration form" style="display:none;">
+          <header>Signup</header>
+          <form action="/register" method="post">
+            <input type="text" name="username" placeholder="Enter your username" required>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <input type="password" name="password" placeholder="Create a password" required>
+            <input type="password" name="confirm_password" placeholder="Confirm your password" required>
+            <input type="submit" class="button" value="Signup">
+            <div class="signup">
+              Already have an account?
+              <label for="check">Login</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    <script src="/static/js/plugins.js"></script>
+    <!-- <script src="/static/js/script.js"></script> -->
+    <script>
+        $(window).on("load", function() {
+            $('body').addClass('loaded');
+        });
+    </script>
+<script>
+    // Show modal
+    document.getElementById('loginBtn').addEventListener('click', function() {
+        document.getElementById('loginModal').style.display = 'block';
+    });
+
+    // Hide modal when clicking anywhere outside of the modal content
+    window.onclick = function(event) {
+        var modal = document.getElementById('loginModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+    // Toggle between login and signup forms within the modal
+    document.querySelectorAll('.signup label').forEach(item => {
+        item.addEventListener('click', () => {
+            var container = document.querySelector('.container');
+            var loginForm = container.querySelector('.login.form');
+            var registrationForm = container.querySelector('.registration.form');
+            // Toggle display property
+            loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+            registrationForm.style.display = registrationForm.style.display === 'none' ? 'block' : 'none';
+        });
+    });
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.hidden-message').forEach(function(item) {
+        var category = item.getAttribute('data-category');
+        var message = item.getAttribute('data-message');
+        var title = "";
+        switch (category) {
+          case "success":
+            title = "Success";
+            break;
+          case "error":
+            title = "Error";
+            break;
+          case "warning":
+            title = "Warning";
+            break;
+          default:
+            title = "Info";
+        }
+        swal({
+          title: title,
+          text: message,
+          icon: category,
+          button: "OK",
+        });
+      });
+    });
+    </script>
+
+    
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% for category, message in messages %}
+    <div class="hidden-message" data-category="{{ category }}" data-message="{{ message }}"></div>
+{% endfor %}
+{% endwith %}
+</body>
+</html>

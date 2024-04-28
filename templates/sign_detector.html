@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Stream</title>
+</head>
+<body>
+    <h1>Live Webcam Stream</h1>
+    <!-- Initially, do not set the src attribute -->
+    <img id="stream" alt="Webcam Video Stream">
+    
+    <!-- Set the button text to indicate that the stream is currently off -->
+    <button id="toggleButton" onclick="toggleStream()">Turn On </button>
+    
+    <script>
+        function toggleStream() {
+            var videoImg = document.getElementById('stream');
+            var toggleBtn = document.getElementById('toggleButton');
+
+            if (videoImg.getAttribute('src')) {
+                videoImg.removeAttribute('src'); // Turn off the stream
+                toggleBtn.textContent = 'Turn On '; // Update button text
+            } else {
+                videoImg.setAttribute('src', '/detection'); // Turn on the stream
+                toggleBtn.textContent = 'Turn Off '; // Update button text
+            }
+        }
+    </script>
+</body>
+</html>

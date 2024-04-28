@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Detection Demo</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/templatemo-style.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                SignGuru
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-1 active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-2" href="/video_page">Videos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-3" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-4" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-4" href="/logout">Logout</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <div class="hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="/static/img/hero.jpg">
+        <div>
+            <h2 class="text-white">
+                Welcome to SignGuru!
+            </h2>
+        </div>
+    </div>
+    <!-- Main Container -->
+    <div class="container-fluid mt-60">
+        <div class="container-fluid container-content mt-60">
+            <div class="row mb-4 justify-content-center">
+                <h2 class="col-12 text-primary text-center">Demo</h2>
+            </div>
+            <div class="row mb-90">
+                <div class="col-lg-8">
+                    <div id="video-containers" style="position: relative; background-color: #ddd;">
+                        <!-- Image used as a placeholder or stream -->
+                        <img id="stream" alt="Webcam Video Stream" src="/static/img/placeholder.png" class="img-fluid" style="width: 100%; height: auto;">
+                        <div class="video-off-overlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); color: white; display: flex; justify-content: center; align-items: center;">
+                            <p>Video is not available.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex flex-column justify-content-center bg-gray" style="padding: 20px;">
+                    <h3>Learn Sign Language</h3>
+                    <p>Welcome to our sign language learning series.</p>
+                    <textarea id="resultText" class="form-control" rows="3" readonly>Results will appear here...</textarea>
+                    <p><button id="speakButton">Speak Result</button></p>
+                    
+                    <p><button id="toggleButton" class="btn btn-primary" onclick="toggleStream()">Turn On</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray pt-5 pb-3 text-gray footer">
+        <div class="container-fluid container-small">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 px-5 mb-5">
+                    <h3 class="text-primary mb-4 footer-title">About SignGuru</h3>
+                    <p>SignGuru was developed as part of a final year project by an ambitious student in Electronic Engineering (Computer).</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 px-5 mb-5 text-right">
+                    <p>My social media here, contact me if any question and feedback.</p>
+                    <ul class="social-links d-flex justify-content-end pl-0 mb-5">
+                        <!-- <li class="mb-2"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li> -->
+                        <li class="mb-2"><a href="https://github.com/SamXQ00/CVproject.git"><i class="fab fa-github"></i></a></li>
+                        <!-- <li class="mb-2"><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li> -->
+                        <li class="mb-2"><a href="https://wa.me/60176846849"><i class="fab fa-whatsapp"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
+                    Copyright 2024 SAM XIAN QI. All rights reserved.
+                </div>
+                <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
+                    Designed by SAM XIAN QI 10DTK21F2024
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="/static/js/plugins.js"></script>
+    <script>
+        $(window).on("load", function() {
+            $('body').addClass('loaded');
+        });
+    </script>
+    <script>
+        function toggleStream() {
+            var videoImg = document.getElementById('stream');
+            var overlay = document.querySelector('.video-off-overlay');
+            var toggleBtn = document.getElementById('toggleButton');
+            if (videoImg.getAttribute('src') === '/detection') {
+                videoImg.setAttribute('src', '/static/img/placeholder.png'); // Switch to placeholder image
+                overlay.style.display = 'flex'; // Show overlay
+                toggleBtn.textContent = 'Turn On';
+                
+            } else {
+                videoImg.setAttribute('src', '/detection'); // Turn on the stream
+                overlay.style.display = 'none'; // Hide overlay
+                toggleBtn.textContent = 'Turn Off';
+                fetch('/reset_result')
+                    .then(response => response.json())
+                    .then(data => console.log(data.message))
+                    .catch(error => console.error('Error resetting results:', error));
+
+            }
+        }
+    </script>
+    <script>
+        document.getElementById('speakButton').addEventListener('click', function() {
+            var textToSpeak = document.getElementById('resultText').value; // 获取需要朗读的文本
+            var utterance = new SpeechSynthesisUtterance(textToSpeak); // 创建一个朗读实例
+            window.speechSynthesis.speak(utterance); // 执行朗读
+        });
+    </script>
+    
+    <script>
+        function updateResults() {
+            fetch('/get_resultsdemo')
+            .then(response => response.json())
+            .then(data => {
+                console.log("Received:", data);  // 调试输出
+                const textarea = document.getElementById('resultText');
+                // 检查是否有新的结果需要读出
+                if (textarea.value !== data.result) {
+                    textarea.value = data.result; // 更新 textarea 的值
+                    speakText(data.result); // 调用 speakText 函数读出新结果
+                }
+            })
+            .catch(error => console.error('Error fetching results:', error));
+        }
+        setInterval(updateResults, 1000);
+    </script>
+    <script>
+        // 确保整个页面加载完成后运行此脚本
+        document.addEventListener('DOMContentLoaded', function() {
+            var resultText = document.getElementById('resultText');
+            resultText.value = "Results will appear here..."; // 设置为初始提示文本
+        
+            // 如果需要，在页面加载时重置服务器上的结果，可以调用一个服务器端路由
+            fetch('/reset_result')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.message); // 服务器响应的信息
+                    resultText.value = data.result || "Results will appear here..."; // 如果服务器发送新的文本就更新
+                })
+                .catch(error => console.error('Error fetching reset data:', error));
+        });
+        </script>
+        
+</body>
+</html>

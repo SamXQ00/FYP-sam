@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignGuru Login</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/templatemo-style.css">
+    <link rel="stylesheet" href="/static/style.css"
+
+
+</head>
+<body>
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                SignGuru
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-1" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-3" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-2" href="/video_page">Videos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-4 active" aria-current="page" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-4" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="/static/img/hero.jpg">
+        <div>
+            <h2 class="text-white">
+                Profile
+            </h2>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <h5 class="card-header">Your Information</h5>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input type="text" class="form-control" id="username" value="{{ user.username }}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" value="{{ user.email }}" disabled>
+                            </div>
+                        </form>
+                    </div>
+                                    <!-- Video Status Table -->
+                    <h5 class="card-header">Video Status</h5>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Video Name</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for video in video_status %}
+                                <tr>
+                                    <td>{{ video.video_name }}</td>
+                                    <td>{{ video.status }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   <!-- Footer -->
+   <footer class="bg-gray pt-5 pb-3 text-gray footer">
+    <div class="container-fluid container-small">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 px-5 mb-5">
+                <h3 class="text-primary mb-4 footer-title">About SignGuru</h3>
+                <p>SignGuru was developed as part of a final year project by an ambitious student in Electronic Engineering (Computer).</p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 px-5 mb-5 text-right">
+                <p>My social media here, contact me if any question and feedback.</p>
+                <ul class="social-links d-flex justify-content-end pl-0 mb-5">
+                    <!-- <li class="mb-2"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li> -->
+                    <li class="mb-2"><a href="https://github.com/SamXQ00/CVproject.git"><i class="fab fa-github"></i></a></li>
+                    <!-- <li class="mb-2"><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li> -->
+                    <li class="mb-2"><a href="https://wa.me/60176846849"><i class="fab fa-whatsapp"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
+                Copyright 2024 SAM XIAN QI. All rights reserved.
+            </div>
+            <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
+                Designed by SAM XIAN QI 10DTK21F2024
+            </div>
+        </div>
+    </div>
+</footer>
+    
+    <script src="/static/js/plugins.js"></script>
+    <script>
+        $(window).on("load", function() {
+            $('body').addClass('loaded');
+        });
+    </script>
+</body>
+</html>

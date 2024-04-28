@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignGuru Videos</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/templatemo-style.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                SignGuru
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-1" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-3" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-2 active" aria-current="page" href="/video_page">Videos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-4" href="/profile">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-4" href="/logout">Logout</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="/static/img/hero.jpg">
+        <div>
+            <h2 class="text-white">
+                Videos
+            </h2>
+        </div>
+        
+    </div>
+
+    <div class="container-fluid container-content mt-60">
+        <div class="row mb-4">
+            <h2 class="col-6 text-primary">
+                Latest Videos
+            </h2>
+        </div>
+        <div class="row mb-90 gallery">
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming video-item">
+                    <video class="img-fluid">
+                        <source src="/static/video/test.mp4" type="video/mp4">
+                    </video> 
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>Thanks</h2>
+                        <a href="/video_detail?video=/static/video/test.mp4&title=Thanks">View more</a>
+                    </figcaption>                    
+                </figure>
+                <div class="d-flex justify-content-between text-gray">
+                    <span>Thanks</span>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming video-item">
+                    <video class="img-fluid">
+                        <source src="/static/video/hero.mp4" type="video/mp4">
+                    </video> 
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>Hero1</h2>
+                        <a href="/video_detail?video=/static/video/hero.mp4&title=Hero 1">View more</a>
+                    </figcaption>                    
+                </figure>
+                <div class="d-flex justify-content-between text-gray">
+                    <span>Hero 1</span>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming video-item">
+                    <video class="img-fluid">
+                        <source src="/static/video/test.mp4" type="video/mp4">
+                    </video> 
+                    <!-- <img src="img/img-02.jpg" alt="Image" class="img-fluid"> -->
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>Mario 2</h2>
+                        <a href="/video_detail?video=/static/video/test.mp4&title=Mario 2">View more</a>
+                        <!-- <a href="video-detail.html">View more</a> -->
+                    </figcaption>                    
+                </figure>
+                <div class="d-flex justify-content-between text-gray">
+                    <span>Mario 2</span>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming video-item">
+                    <video class="img-fluid">
+                        <source src="/static/video/hero.mp4" type="video/mp4">
+                    </video> 
+                    <!-- <img src="img/img-02.jpg" alt="Image" class="img-fluid"> -->
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>Hero 2</h2>
+                        <a href="/video_detail?video=/static/video/hero.mp4&title=Hero 2">View more</a>
+                        <!-- <a href="video-detail.html">View more</a> -->
+                    </figcaption>                    
+                </figure>
+                <div class="d-flex justify-content-between text-gray">
+                    <span>Hero 2</span>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming video-item">
+                    <video class="img-fluid">
+                        <source src="/static/video/test.mp4" type="video/mp4">
+                    </video> 
+                    <!-- <img src="img/img-02.jpg" alt="Image" class="img-fluid"> -->
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>Mario 3</h2>
+                        <a href="/video_detail?video=/static/video/test.mp4&title=Mario 3">View more</a>
+                        <!-- <a href="video-detail.html">View more</a> -->
+                    </figcaption>                    
+                </figure>
+                <div class="d-flex justify-content-between text-gray">
+                    <span>Mario 3</span>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming video-item">
+                    <video class="img-fluid">
+                        <source src="/static/video/hero.mp4" type="video/mp4">
+                    </video> 
+                    <!-- <img src="img/img-02.jpg" alt="Image" class="img-fluid"> -->
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>Hero 3</h2>
+                        <a href="/video_detail?video=/static/video/hero.mp4&title=Hero 3">View more</a>
+                        <!-- <a href="video-detail.html">View more</a> -->
+                    </figcaption>                    
+                </figure>
+                <div class="d-flex justify-content-between text-gray">
+                    <span>Hero 3</span>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming video-item">
+                    <video class="img-fluid">
+                        <source src="/static/video/test.mp4" type="video/mp4">
+                    </video> 
+                    <!-- <img src="img/img-02.jpg" alt="Image" class="img-fluid"> -->
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>Mario 4</h2>
+                        <a href="/video_detail?video=/static/video/test.mp4&title=Mario 4">View more</a>
+                        <!-- <a href="video-detail.html">View more</a> -->
+                    </figcaption>                    
+                </figure>
+                <div class="d-flex justify-content-between text-gray">
+                    <span>Mario 4</span>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming video-item">
+                    <video class="img-fluid">
+                        <source src="/static/video/hero.mp4" type="video/mp4">
+                    </video> 
+                    <!-- <img src="img/img-02.jpg" alt="Image" class="img-fluid"> -->
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>Hero 4</h2>
+                        <a href="/video_detail?video=/static/video/hero.mp4&title=Hero 4">View more</a>
+                        <!-- <a href="video-detail.html">View more</a> -->
+                    </figcaption>                    
+                </figure>
+                <div class="d-flex justify-content-between text-gray">
+                    <span>Hero 4</span>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming video-item">
+                    <video class="img-fluid">
+                        <source src="/static/video/test.mp4" type="video/mp4">
+                    </video> 
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>Mario 5</h2>
+                        <a href="/video_detail?video=/static/video/test.mp4&title=Mario 5">View more</a>
+                    </figcaption>                    
+                </figure>
+                <div class="d-flex justify-content-between text-gray">
+                    <span>Mario 5</span>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming video-item">
+                    <video class="img-fluid">
+                        <source src="/static/video/hero.mp4" type="video/mp4">
+                    </video> 
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>Hero 5</h2>
+                        <a href="/video_detail?video=/static/video/hero.mp4&title=Hero 5">View more</a>
+                    </figcaption>                    
+                </figure>
+                <div class="d-flex justify-content-between text-gray">
+                    <span>Hero 5</span>
+                </div>
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container-fluid, tm-container-content -->
+   <!-- Footer -->
+   <footer class="bg-gray pt-5 pb-3 text-gray footer">
+    <div class="container-fluid container-small">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 px-5 mb-5">
+                <h3 class="text-primary mb-4 footer-title">About SignGuru</h3>
+                <p>SignGuru was developed as part of a final year project by an ambitious student in Electronic Engineering (Computer).</p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 px-5 mb-5 text-right">
+                <p>My social media here, contact me if any question and feedback.</p>
+                <ul class="social-links d-flex justify-content-end pl-0 mb-5">
+                    <!-- <li class="mb-2"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li> -->
+                    <li class="mb-2"><a href="https://github.com/SamXQ00/CVproject.git"><i class="fab fa-github"></i></a></li>
+                    <!-- <li class="mb-2"><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li> -->
+                    <li class="mb-2"><a href="https://wa.me/60176846849"><i class="fab fa-whatsapp"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
+                Copyright 2024 SAM XIAN QI. All rights reserved.
+            </div>
+            <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
+                Designed by SAM XIAN QI 10DTK21F2024
+            </div>
+        </div>
+    </div>
+</footer>
+    
+    <script src="/static/js/plugins.js"></script>
+    <script>
+        $(window).on("load", function() {
+            $('body').addClass('loaded');
+        });
+
+        $(function(){
+            /************** Video background *********/
+
+            function setVideoSize() {
+                const vidWidth = 1280;
+                const vidHeight = 720;
+                const maxVidHeight = 400;
+                let windowWidth = window.innerWidth;
+                let newVidWidth = windowWidth;
+                let newVidHeight = windowWidth * vidHeight / vidWidth;
+                let marginLeft = 0;
+                let marginTop = 0;
+            
+                if (newVidHeight < maxVidHeight) {
+                    newVidHeight = maxVidHeight;
+                    newVidWidth = newVidHeight * vidWidth / vidHeight;
+                }
+            
+                if(newVidWidth > windowWidth) {
+                    marginLeft = -((newVidWidth - windowWidth) / 2);
+                }
+            
+                if(newVidHeight > maxVidHeight) {
+                    marginTop = -((newVidHeight - $('#video-container').height()) / 2);
+                }
+            
+                const tmVideo = $('#video');
+            
+                tmVideo.css('width', newVidWidth);
+                tmVideo.css('height', newVidHeight);
+                tmVideo.css('margin-left', marginLeft);
+                tmVideo.css('margin-top', marginTop);
+            }
+
+            setVideoSize();
+
+            // Set video background size based on window size
+            let timeout;
+            window.onresize = function () {
+                clearTimeout(timeout);
+                timeout = setTimeout(setVideoSize, 100);
+            };
+
+            // Play/Pause button for video background      
+            const btn = $("#video-control-button");
+
+            btn.on("click", function (e) {
+                const video = document.getElementById("video");
+                $(this).removeClass();
+
+                if (video.paused) {
+                    video.play();
+                    $(this).addClass("fas fa-pause");
+                } else {
+                    video.pause();
+                    $(this).addClass("fas fa-play");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@ import shutil
 from tkinter import messagebox
 
 def delete_resources():
-    files_to_delete = ['/home/sam/Desktop/signlanguage/model.h5', '/home/sam/Desktop/signlanguage/model2.tflite']
+    files_to_delete = ['/home/sam/Desktop/signlanguage/model.h5', '/home/sam/Desktop/signlanguage/model.tflite']
     directory_to_delete = '/home/sam/Desktop/signlanguage/Logs'
 
     # ????

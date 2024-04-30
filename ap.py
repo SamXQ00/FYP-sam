@@ -11,16 +11,16 @@ app = Flask(__name__)
 app.secret_key = '123345'
 redis_client = redis.Redis(host='localhost', port=6000, db=0)
 DATABASE = 'dbtest.db'
-# 创建一个装饰器来检查用户是否登录
+# some page required user login 
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if 'user_id' not in session:
             flash('You need to be logged in to view this page.', 'error')
-            return redirect(url_for('home'))  # 或者重定向到登录页面
+            return redirect(url_for('home'))  # back to home page
         return f(*args, **kwargs)
     return decorated_function
-
+#get database connection
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
@@ -33,6 +33,7 @@ def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
+# home page
 @app.route('/')
 def home():
     db = get_db()
@@ -55,31 +56,35 @@ def home():
     db.close()
     return render_template('index.html')
 
+# About page
 @app.route('/about')
 def about():
     return render_template('about.html')
 
+#Videos tutorial page
 @app.route('/video_page')
 @login_required
 def video_page():
     return render_template('videos.html')
 
+# Play video page
 @app.route('/video_detail')
 @login_required
 def video_detail():
     return render_template('video-detail.html')
-    
+
+# Profile page
 @app.route('/profile')
 @login_required
-
 def profile():
-    user_id = session.get('user_id')
+    user_id = session.get('user_id') # get user_id from login user
     if user_id is None:
         flash("You need to be logged in to view this page.", "error")
         return redirect(url_for('login'))
 
     db = get_db()
     cursor = db.cursor()
+    # get data from sqlite table user and table video status
     user = cursor.execute('SELECT username, email FROM users WHERE id = ?', (user_id  ,)).fetchone()
     videos = cursor.execute('SELECT video_name, status FROM video_status WHERE user_id = ?', (user_id,)).fetchall()
     db.close()
@@ -88,15 +93,7 @@ def profile():
     else:
         flash("User not found.", "error")
     return render_template('profile.html')
-@app.route('/demo')
-def test():
-    return render_template('detection-page.html')
-@app.route('/detect')
-@login_required
-def detect():
-    video_title = request.args.get('title', 'Default Title')  # 如果没有提供标题，使用默认标题
 
-    return render_template('Detection.html', title=video_title)
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -135,8 +132,8 @@ def register():
             hashed_password = generate_password_hash(password, method='pbkdf2:sha256', salt_length=8)
             
             cursor.execute('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', (username, email, hashed_password))
-            user_id = cursor.lastrowid #获取新用户的 ID
-            initialize_video_status(user_id, cursor)  # 初始化视频状态
+            user_id = cursor.lastrowid #Get new user ID
+            initialize_video_status(user_id, cursor)  # initial video status
             db.commit() 
             flash('Registration successful!', 'success')
             return redirect(url_for('login'))
@@ -153,24 +150,39 @@ def register():
             if db:
                 db.close()
     return render_template('index.html')
-def initialize_video_status(user_id, cursor):
+
+def initialize_video_status(user_id, cursor): # when register new user auto fill data from data path
     default_status = "Pending"
-    video_ids = os.listdir(DATA_PATH) # 根据实际情况调整
+    video_ids = os.listdir(DATA_PATH) 
     for video_id in video_ids:
         cursor.execute('INSERT INTO video_status (video_name, user_id ,status) VALUES (?, ?, ?)', (video_id,user_id, default_status))
 
+# Logout route
 @app.route('/logout')
 def logout():
-    session.pop('user_id', None)  # 移除session中的用户ID
+    session.pop('user_id', None)  # remove user_id
     flash('You have been logged out.', 'success')
     return redirect(url_for('home'))
 
+@app.route('/demo') # demo detection
+def test():
+    return render_template('detection-page.html')
+
+#detection page, getting the dynamic title
+@app.route('/detect')
+@login_required
+def detect():
+    video_title = request.args.get('title', 'Default Title')  # if dont have title or error title initial default title
+
+    return render_template('Detection.html', title=video_title)
+
+# generate and post the results (redis) to front end
 @app.route('/detection')
 def video():
-    # camera_type = request.args.get('camera_type', 'webcam')
     return Response(generate_frames(redis_client), 
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
+# Get the results of detection page
 @app.route('/get_results')
 @login_required
 def get_results():
@@ -182,21 +194,21 @@ def get_results():
     
     if latest_result is not None:
         latest_result = latest_result.decode('utf-8')
-        
+        #if latest result is same with title 
         if latest_result == video_title:
             db = get_db()
             cursor = db.cursor()
             # try:
-                # 更新数据库状态为'Completed'
+                # update status to 'Completed'
             cursor.execute("UPDATE video_status SET status='Completed' WHERE video_name=? AND user_id=?", (video_title, session['user_id']))
             db.commit()
             return jsonify({'result': latest_result, 'confidence':confidence, 'message': 'Detection successful and status updated!', 'status': 'success'})
             db.close()
         else:
-        #     # 如果结果不匹配，返回失败状态
+        #     # else return results also, because need to avoid the popup message box
             return jsonify({'result': latest_result, 'confidence': confidence})
     else:
-        # 如果没有结果可用
+        # if no result then return empty
         return jsonify({'result': '','confidence': confidence})
 @app.route('/get_resultsdemo')
 def get_result():

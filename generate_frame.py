@@ -15,13 +15,13 @@ from picamera2.encoders import H264Encoder
 from landmark_detection import *
 mp_holistic = mp.solutions.holistic #holistic model
 mp_drawing = mp.solutions.drawing_utils #Drawing utilities
-DATA_PATH = os.path.join('MP_Data')
+DATA_PATH = os.path.join('/home/sam/Desktop/signlanguage/MP_Data')
 # Initialize actions as an empty list
 # actions = []
 Actions = os.listdir(DATA_PATH) #action name..
 Actions1 = np.array(Actions) #read data_path .npy
 #Load tflite model
-interpreter = tf.lite.Interpreter(model_path="model2.tflite")
+interpreter = tf.lite.Interpreter(model_path="/home/sam/Desktop/signlanguage/model.tflite")
 interpreter.allocate_tensors()
 # Get input and output tensors.
 input_details = interpreter.get_input_details()

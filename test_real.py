@@ -17,13 +17,13 @@ import threading
 import random
 mp_holistic = mp.solutions.holistic #holistic model
 mp_drawing = mp.solutions.drawing_utils #Drawing utilities
-DATA_PATH = os.path.join('MP_Data')
+DATA_PATH = os.path.join('/home/sam/Desktop/signlanguage/MP_Data')
 # Initialize actions as an empty list
 # actions = []
 Actions = os.listdir(DATA_PATH) #action name..
 Actions1 = np.array(Actions) #read data_path .npy
 #Load tflite model
-interpreter = tf.lite.Interpreter(model_path="model3.tflite")
+interpreter = tf.lite.Interpreter(model_path="/home/sam/Desktop/signlanguage/model.tflite")
 interpreter.allocate_tensors()
 # Get input and output tensors.
 input_details = interpreter.get_input_details()
@@ -43,7 +43,7 @@ def test_real():
     sequence =[]
     sentence = []
     predictions= []
-    threshold = 0.8
+    threshold = 0.6
     picam2 =Picamera2()
     config =picam2.create_video_configuration(main={"format": "XRGB8888"})
     picam2.configure(config)

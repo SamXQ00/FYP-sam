@@ -5,7 +5,7 @@ import tkinter as tk
 
 def load_data(tree):
     try:
-        conn = sqlite3.connect('dbtest.db')
+        conn = sqlite3.connect('/home/sam/Desktop/signlanguage/dbtest.db')
         cursor = conn.cursor()
         cursor.execute("""
             SELECT users.id, users.username, users.email, video_status.video_name, video_status.status
@@ -24,7 +24,7 @@ def search(search_entry, tree):
 
     # status = search_status.get()
     try:
-        conn = sqlite3.connect('dbtest.db')
+        conn = sqlite3.connect('/home/sam/Desktop/signlanguage/dbtest.db')
         cursor = conn.cursor()
         cursor.execute("SELECT users.id, users.username, users.email, video_status.video_name, video_status.status\
                         FROM users JOIN video_status ON users.id = video_status.user_id\
@@ -44,7 +44,7 @@ def searchstatus(search_status, tree):
 
     # status = search_status.get()
     try:
-        conn = sqlite3.connect('dbtest.db')
+        conn = sqlite3.connect('/home/sam/Desktop/signlanguage/dbtest.db')
         cursor = conn.cursor()
         cursor.execute("SELECT users.id, users.username, users.email, video_status.video_name, video_status.status\
                         FROM users JOIN video_status ON users.id = video_status.user_id\
@@ -70,7 +70,7 @@ def delete_user(username_entry, tree):
         return
 
     try:
-        conn = sqlite3.connect('dbtest.db')
+        conn = sqlite3.connect('/home/sam/Desktop/signlanguage/dbtest.db')
         cursor = conn.cursor()
         cursor.execute("DELETE FROM video_status WHERE user_id IN (SELECT id FROM users WHERE username = ?)", (username,))
         # print(f"Deleted {cursor.rowcount} rows from video_status")
@@ -177,9 +177,9 @@ def userdetail(parent):
     search_status = tk.Entry(canvas)
     search_status.place(x=520,y=420, width=100)
 
-    search_btn = tk.Button(canvas, text="Filter", command=lambda: search(search_entry,tree))
+    search_btn = tk.Button(canvas, text="filter_name", command=lambda: search(search_entry,tree))
     search_btn.place(x=640,y=420, width=80)
-    search_status_btn =tk.Button(canvas, text="Filter", command=lambda: searchstatus(search_status,tree))
+    search_status_btn =tk.Button(canvas, text="filter_status", command=lambda: searchstatus(search_status,tree))
     search_status_btn.place(x=720,y=420, width=80)
 
     tree_frame = tk.Frame(canvas)

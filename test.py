@@ -96,8 +96,8 @@ class MainApplication(tk.Tk):
         button_height = 70
         custom_font = font.Font(family="Helvetica", size=12, weight="bold")
         buttons_info = [
-            ("Home", "userdetail"),
-            ("Collect Data", "collection")
+            ("User Data", "userdetail"),
+            ("Test-Real", "collection")
             # ("Train", "trainmodel"),
             # ("Test-real", "test-real"),
         ]

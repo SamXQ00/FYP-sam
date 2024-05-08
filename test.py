@@ -26,7 +26,6 @@ def create_login_window():
 
     # window.iconbitmap(r"\home\sam\Desktop\signlanguage\GUI\assets\frame0\lock.ico")
     window.configure(bg="#61FFF5")
-
     canvas = Canvas(window, bg = "#61FFF5",height = 600,width = 950,bd = 0,highlightthickness = 0,relief = "ridge")
     canvas.place(x = 0, y = 0)
     canvas.create_rectangle(301.0,0.0,950.0,600.0,fill="#D9D9D9",outline="")
@@ -64,8 +63,8 @@ def login(entry_username, entry_pass, window):
     password = entry_pass.get()
     if username == "admin" and password == "1234":
         messagebox.showinfo("Success", "Welcome Admin.")
-        window.destroy()  # 关闭登录窗口
-        app = MainApplication()  # 创建并启动主应用程序
+        window.destroy()  # window close
+        app = MainApplication()  # create then start main application
         app.mainloop()
     else:
         messagebox.showerror("Failure", "Invalid username or password")
@@ -83,10 +82,10 @@ class MainApplication(tk.Tk):
             # "test-real": test_real(self),
             "userdetail": userdetail(self) 
         }
-        # 创建导航栏并初始显示首页或任何页面
+        # create navbar and initial all page
         self.create_nav_buttons()
-        self.show_page('userdetail')  # 默认显示集合页面
-                # 初始化所有页面，但默认不显示
+        self.show_page('userdetail')  #initial page
+                # initial all page but not show
         for page in self.pages.values():
             page.place(x=0, y=0, width=950, height=650)
 
@@ -101,7 +100,7 @@ class MainApplication(tk.Tk):
             # ("Train", "trainmodel"),
             # ("Test-real", "test-real"),
         ]
-    # 计算最后一个按钮的位置
+    # calculate the last button place
         last_button_x = start_x + len(buttons_info) * button_width
 
         for i, (text, page_name) in enumerate(buttons_info):
@@ -112,23 +111,19 @@ class MainApplication(tk.Tk):
             button.place(x=start_x + i * button_width, y=0, width=button_width, height=button_height)
 
 
-        # 添加 Logout 按钮
+        # Logout
         self.button_logout = tk.Button(self, text="Logout", font=custom_font,
                                     relief="flat", borderwidth=0, highlightthickness=0,
                                     bg="#7EFFF7", fg="black", activebackground="#7EFFF7", activeforeground="blue",
                                     command=self.logout)
         self.button_logout.place(x=last_button_x, y=0, width=button_width, height=button_height)
 
-    # def create_navbar(self):
-    #     # 创建导航按钮等
-    #     pass
     def logout(self):
         if messagebox.askyesno("Logout","Do you really want to logout?"):
             self.destroy()
             create_login_window()
 
     def show_page(self, page_name):
-        # 隐藏所有页面，显示指定页面
         # print(f"Showing page :{page_name}")
         for page in self.pages.values():
             page.place_forget()

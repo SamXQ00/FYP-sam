@@ -37,17 +37,15 @@ def generate_frames(redis_client=None):
     sequence = []
     sentence = []
     predictions = []
-    threshold = 0.8
+    threshold = 0.7
     try:        
         with mp.solutions.holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
             while True:
                 frame = picam2.capture_array()
                 # Make detections
                 frame, results = mediapipe_detection(frame, holistic)
-
                 # Draw landmarks
                 draw_styled_landmarks(frame, results)
-
                 # Prediction logic
                 keypoints = extract_keypoints(results)
                 sequence.append(keypoints)

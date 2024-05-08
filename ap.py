@@ -213,13 +213,13 @@ def get_results():
 @app.route('/get_resultsdemo')
 def get_result():
     latest_results = redis_client.get('joinlatest_result')
-    print("Sending latest result to frontend:", latest_results)  # 添加打印语句以确认
+    print("Sending latest result to frontend:", latest_results)
     return jsonify({'result': latest_results.decode('utf-8')})
 
 @app.route('/reset_result')
 def reset_result():
-    redis_client.set('latest_result', '')  # 设置回初始值
-    redis_client.set('joinlatest_result', '')  # 设置回初始值
+    redis_client.set('latest_result', '')  # initialize value
+    redis_client.set('joinlatest_result', '')  # initialize value
     return jsonify({'status': 'success', 'message': 'Result has been reset to initial state.'})
 
 

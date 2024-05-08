@@ -52,11 +52,9 @@ def test_real():
         while True:
             frame = picam2.capture_array()
             # frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
-
             image, results = mediapipe_detection(frame, holistic)
             # print(results)
             # keypoint = extract_keypoints(results)
-
             draw_styled_landmarks(image, results)
             # Prediction logic
             keypoints = extract_keypoints(results)

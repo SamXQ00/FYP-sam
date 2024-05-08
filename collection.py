@@ -10,9 +10,9 @@ from navbar_menu import *
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 import sqlite3
 import tkinter as tk
-from collecting import *
-from delete import *
-from preprocess_data import *
+# from collecting import *
+# from delete import *
+# from preprocess_data import *
 from test_real import *
 import threading
 def relative_to_assets(path: str) -> Path:

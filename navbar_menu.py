@@ -1,13 +1,13 @@
 import tkinter as tk
 from tkinter import font
 def create_nav_buttons(canvas):
-    # 导航按钮的起始位置
+    # navbar start point
     start_x = 228.0
     button_width = 150
     button_height = 70
-    custom_font = font.Font(family="Helvetica", size=12, weight="bold")  # 创建字体对象
+    custom_font = font.Font(family="Helvetica", size=12, weight="bold")  # create bold text
 
-    # 按钮文本和命令
+    # button text
     buttons_info = [
         ("Home", lambda: print("Home clicked")),
         ("Collection", lambda: print("Collection clicked")),
@@ -15,7 +15,7 @@ def create_nav_buttons(canvas):
         ("Test", lambda: print("Test clicked"))
     ]
     
-    # 创建按钮
+    # create button
     for i, (text, command) in enumerate(buttons_info):
         button = tk.Button(canvas, text=text, command=command,font=custom_font,
                            relief="flat", borderwidth=0, highlightthickness=0,

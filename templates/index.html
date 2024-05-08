@@ -38,7 +38,7 @@
                 </li>
                 {%if 'user_id' in session %}
                 <li class="nav-item">
-                    <a class="nav-link nav-link-2" href="/video_page">Videos</a>
+                    <a class="nav-link nav-link-2" href="/video_page">Tutorial</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-4" href="/profile">Profile</a>
@@ -49,7 +49,7 @@
                 
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link nav-link-2" href="/video_page">Videos</a>
+                    <a class="nav-link nav-link-2" href="/video_page">Tutorial</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-4" href="/profile">Profile</a>
@@ -95,11 +95,11 @@
         <div class="row mb-74 row-1640">
             <div>
                 <ul class="special-text">
-                    <li><b style="color: black;">Enhance Communication Accessibility:</b>Provide an intuitive and reliable platform for translating Malaysian Sign Language into text and spoken language, making communication more accessible for the deaf and hard-of-hearing community in Malaysia.</li>
+                    <li><b style="color: black;">Real-Time Detection:</b>Translating Malaysian Sign Language into text and spoken language, making communication more accessible for the deaf and hard-of-hearing community in Malaysia.</li>
                     <li>
                         <b style="color: black;"> Continuous Learning and Improvement:</b> Provide resources for users to learn more about Malaysian Sign Language and offer features that help users improve their sign language skills over time.
                     </li>
-                    <li><b style="color: black;"> Inclusion and Awareness:</b> Raise awareness about the importance of inclusivity in communication and promote the integration of Malaysian Sign Language into everyday interactions both in personal and professional settings.
+                    <li><b style="color: black;">Enhance Educational Resources:</b> To increase educational resources for Malaysia's deaf-mute community sign language learning resources.
                     </li>
                 </ul>
             </div>
@@ -158,7 +158,7 @@
                         Experience SignGuru in Real Time
                     </h2>
                     <video autoplay muted loop controls id="video">
-                        <source src="/static/video/hero.mp4" type="video/mp4">
+                        <source src="/static/video/demo.mp4" type="video/mp4">
                     </video>
                     <p class="special-text">
                         Watch our interactive demo to see how <b>SignGuru</b> seamlessly translates <b>Malaysian Sign Language</b> into text and speech. 
@@ -182,11 +182,11 @@
                             Why This Matters
                     </h2>
                     <p class="special-text">SignGuru not only facilitates everyday communication for the deaf and hard-of-hearing community in Malaysia but also supports learning and education by providing a tool that can be used in educational settings, workplaces, and social environments.</p>
-                    <p class="special-text"><a href="#"><b class="text-getstart">Get Started Now:</b></b></a> Interested in trying SignGuru? Our demo is just the beginning. Dive into a more inclusive world where language is no barrier. Click Get Start Now to try SignGuru for yourself or contact us for more information on how we can assist your communication needs.</p>
+                    <p class="special-text"><a href="/demo"><b class="text-getstart">Get Started Now:</b></a> Interested in trying SignGuru? Our demo is just the beginning. Dive into a more inclusive world where language is no barrier. Click Get Start Now to try SignGuru for yourself or contact us for more information on how we can assist your communication needs.</p>
                 </div>                
             </div>     
             <div class="text-center">
-                <a href="/demo" class="btn btn-primary">Try Demo</a>
+                <a href="/video_page" class="btn btn-primary">Tutorial Page</a>
             </div>
         </div> 
     </div>
@@ -203,7 +203,7 @@
                     <p>My social media here, contact me if any question and feedback.</p>
                     <ul class="social-links d-flex justify-content-end pl-0 mb-5">
                         <!-- <li class="mb-2"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li> -->
-                        <li class="mb-2"><a href="https://github.com/SamXQ00/CVproject.git"><i class="fab fa-github"></i></a></li>
+                        <li class="mb-2"><a href="https://github.com/SamXQ00/FYP-sam.git"><i class="fab fa-github"></i></a></li>
                         <!-- <li class="mb-2"><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li> -->
                         <li class="mb-2"><a href="https://wa.me/60176846849"><i class="fab fa-whatsapp"></i></a></li>
                     </ul>
@@ -220,11 +220,11 @@
         </div>
     </footer>
 
-        <!-- 登录和注册的模态弹窗 -->
+        <!-- login and register -->
 <div id="loginModal" class="modal" style="display:none;">
     <div class="modal-content">
       <div class="container">
-        <!-- 登录表单 -->
+        <!-- login form -->
         <div class="login form">
           <header>Login</header>
           <form action="/login" method="post">
@@ -238,7 +238,7 @@
             </div>
           </form>
         </div>
-        <!-- 注册表单 -->
+        <!-- register form -->
         <div class="registration form" style="display:none;">
           <header>Signup</header>
           <form action="/register" method="post">

@@ -30,17 +30,30 @@
                     <a class="nav-link nav-link-1 active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link nav-link-3" href="/about">About</a>
+                </li>
+                {%if 'user_id' in session %}
+                <li class="nav-item">
                     <a class="nav-link nav-link-2" href="/video_page">Videos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-3" href="/about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-4" href="/contact">Contact</a>
+                    <a class="nav-link nav-link-4" href="/profile">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-4" href="/logout">Logout</a>
                 </li>
+                
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link nav-link-2" href="/video_page">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-4" href="/profile">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn" id="loginBtn">Log In</button>
+                </li>
+                {% endif %}
             </ul>
             </div>
         </div>
@@ -93,7 +106,7 @@
                     <p>My social media here, contact me if any question and feedback.</p>
                     <ul class="social-links d-flex justify-content-end pl-0 mb-5">
                         <!-- <li class="mb-2"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li> -->
-                        <li class="mb-2"><a href="https://github.com/SamXQ00/CVproject.git"><i class="fab fa-github"></i></a></li>
+                        <li class="mb-2"><a href="https://github.com/SamXQ00/FYP-sam.git"><i class="fab fa-github"></i></a></li>
                         <!-- <li class="mb-2"><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li> -->
                         <li class="mb-2"><a href="https://wa.me/60176846849"><i class="fab fa-whatsapp"></i></a></li>
                     </ul>
@@ -116,6 +129,7 @@
             $('body').addClass('loaded');
         });
     </script>
+    <!--button js-->
     <script>
         function toggleStream() {
             var videoImg = document.getElementById('stream');
@@ -140,22 +154,22 @@
     </script>
     <script>
         document.getElementById('speakButton').addEventListener('click', function() {
-            var textToSpeak = document.getElementById('resultText').value; // 获取需要朗读的文本
+            var textToSpeak = document.getElementById('resultText').value; // get the text for speak
             var utterance = new SpeechSynthesisUtterance(textToSpeak); // 创建一个朗读实例
-            window.speechSynthesis.speak(utterance); // 执行朗读
+            window.speechSynthesis.speak(utterance); // speaking text
         });
     </script>
-    
+    <!--update results-->
     <script>
         function updateResults() {
             fetch('/get_resultsdemo')
             .then(response => response.json())
             .then(data => {
-                console.log("Received:", data);  // 调试输出
+                console.log("Received:", data);  
                 const textarea = document.getElementById('resultText');
-                // 检查是否有新的结果需要读出
+                //check if have any new result
                 if (textarea.value !== data.result) {
-                    textarea.value = data.result; // 更新 textarea 的值
+                    textarea.value = data.result; // update text area
                     speakText(data.result); // 调用 speakText 函数读出新结果
                 }
             })
@@ -163,6 +177,7 @@
         }
         setInterval(updateResults, 1000);
     </script>
+    <!--reset-->
     <script>
         // 确保整个页面加载完成后运行此脚本
         document.addEventListener('DOMContentLoaded', function() {

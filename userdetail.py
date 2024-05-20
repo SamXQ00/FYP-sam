@@ -101,73 +101,23 @@ def userdetail(parent):
     def relative_to_assets(path: str) -> Path:
         return ASSETS_PATH / Path(path)
     
-    canvas = Canvas(
-        parent,
-        bg="#7EFFF7",
-        height=650,
-        width=950,
-        bd=0,
-        highlightthickness=0,
-        relief="ridge"
-    )
+    canvas = Canvas(parent,bg="#7EFFF7",height=650,width=950,bd=0,highlightthickness=0,relief="ridge")
     canvas.place(x=0, y=0)
-    canvas.create_rectangle(
-        228.0,
-        0.0,
-        950.0,
-        650.0,
-        fill="#76CDFF",
-        outline=""
-    )
-    canvas.create_rectangle(
-        228.0,
-        0.0,
-        950.0,
-        70.0,
-        fill="#7EFFF7",
-        outline="")
-
-    # 保存PhotoImage引用
-    canvas.images = []  # 创建一个属性来保持对图像的引用
-
-    # 创建并保存第一张图片
+    canvas.create_rectangle(228.0,0.0,950.0,650.0,fill="#76CDFF",outline="")
+    canvas.create_rectangle(228.0,0.0,950.0,70.0,fill="#7EFFF7",outline="")
+    canvas.images = []  
     image_1 = PhotoImage(file=relative_to_assets("image_1.png"))
-    canvas.images.append(image_1)  # 将图片保存到列表中
-    canvas.create_image(
-        208.0,
-        469.0,
-        image=image_1
-    )
-
-    # 创建并保存第二张图片
+    canvas.images.append(image_1)  # save image at 'images'
+    canvas.create_image(208.0,469.0,image=image_1)
+    # second image
     image_2 = PhotoImage(file=relative_to_assets("image_2.png"))
     canvas.images.append(image_2)
-    canvas.create_image(
-        111.0,
-        103.0,
-        image=image_2
-    )
-    canvas.create_text(
-        50.0,
-        278.0,
-        anchor="nw",
-        text="Welcome Admin!",
-        fill="#0083AC",
-        font=("Inter Bold", 20 * -1)
-    )
-
-    canvas.create_text(
-        524.0,
-        134.0,
-        anchor="nw",
-        text="User Information",
-        fill="#000000",
-        font=("Inter Bold", 20 * -1)
-    )
+    canvas.create_image(111.0,103.0,image=image_2)
+    canvas.create_text(50.0,278.0,anchor="nw",text="Welcome Admin!",fill="#0083AC",font=("Inter Bold", 20 * -1))
+    canvas.create_text(524.0,134.0,anchor="nw",text="User Information",fill="#000000",font=("Inter Bold", 20 * -1))
     username_entry = tk.Entry(canvas)
     username_entry.place(x=420, y=500, width=150)
     canvas.create_text(420.0,480.0,anchor="nw",text="Entry username to delete users:",fill="gray",font=("Inter Bold", 12 * -1))
-    # ????
     delete_btn = tk.Button(canvas, text="Delete User", command=lambda: delete_user(username_entry, tree))
     delete_btn.place(x=600, y=500, width=100)
 

@@ -51,9 +51,9 @@ model.add(Dense(32,activation='relu'))
 model.add(Dense(Actions.shape[0], activation='softmax'))
 
 model.compile(optimizer='Adam', loss='categorical_crossentropy',metrics=['categorical_accuracy'])
-# model.fit(X_train, y_train, epochs = 200, batch_size=32, validation_split=0.2, callbacks=[tb_callback, mc_callback, es_callback])
+model.fit(X_train, y_train, epochs = 200, batch_size=32, validation_split=0.2, callbacks=[tb_callback, mc_callback, es_callback])
 # # # tfjs.converters.save_keras_model(model,'models')
-# model.save('action.h5')
+model.save('action.h5')
 # print("Starting to convert keras model to TensorflowLite.......")
 # # model.summary()
 
